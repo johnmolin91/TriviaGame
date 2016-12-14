@@ -2,13 +2,17 @@ var time = 90;
 var correctCounter = 0;
 var incorrectCounter = 0;
 
+// This is the timer countdown function.
 function timerCount() {
 	timer = setInterval(count, 1000);
 }
 
+// This is what is executed after every second.
 function count() {
   time--;
   $("#timer").html("Time remaining: " + time);
+ 
+  // After time is up, I want these things to happen.
   if (time == 0) {
   	clearInterval(timer);
   	$("#questionaire").hide();
@@ -22,8 +26,10 @@ function count() {
   }
 }
 
+// run the function
 timerCount();
 
+// Determining the correct and incorrect answers for each question.
 $('#question1').click(function() {
 	 if ($("input[value='memento']:checked").val()){
 	correctCounter++;
@@ -78,6 +84,7 @@ $('#question6').click(function() {
 	}
 });
 
+// What to do when you click the submit button.
 $('#button').on("click", function(){
 	clearInterval(timer);
   	$("#questionaire").hide();
